@@ -26,7 +26,6 @@ public struct FilmCreditsView: View {
                 Spacer()
                 controlBar
             }
-            .edgesIgnoringSafeArea(.bottom)
         }
     }
 
