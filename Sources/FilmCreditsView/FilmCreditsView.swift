@@ -16,13 +16,14 @@ public struct FilmCreditsView: View {
             // Background
             Color.black.edgesIgnoringSafeArea(.all)
 
-            VStack(spacing: 0) {
-                // Control bar
-                controlBar
+            creditsContent
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 
-                // Credits content
-                creditsContent
+            VStack {
+                Spacer()
+                controlBar
             }
+            .edgesIgnoringSafeArea(.bottom)
         }
     }
 
@@ -37,8 +38,8 @@ public struct FilmCreditsView: View {
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
                     .cornerRadius(8)
-                // .background(Color.gray.opacity(0.3))
             }
+            .buttonStyle(PlainButtonStyle())
 
             Spacer()
 
@@ -51,15 +52,16 @@ public struct FilmCreditsView: View {
                     .foregroundColor(.white)
             }
         }
-        .padding()
-        .background(Color.black.opacity(0.8))
+        .padding(.horizontal)
+        .padding(.vertical, 24)
+        .background(Color.black.opacity(0.8).blur(radius: 2))
     }
 
     /// Main scrolling credits content
     private var creditsContent: some View {
         GeometryReader { geometry in
             ScrollView {
-                VStack(spacing: 0) {
+                VStack(alignment: .center, spacing: 0) {
                     // Top spacer for initial position
                     Spacer()
                         .frame(height: geometry.size.height / 2)
@@ -71,6 +73,7 @@ public struct FilmCreditsView: View {
                     Spacer()
                         .frame(height: geometry.size.height / 2)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 .modifier(AutoScrollModifier(
                     isEnabled: $isAnimating,
                     speed: scrollSpeed,
