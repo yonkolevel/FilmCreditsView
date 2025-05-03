@@ -2,13 +2,16 @@ import SwiftUI
 
 public struct FilmCreditsView: View {
     private let credits: CreditData
+    private let textColor: Color
     @State private var isAnimating: Bool = true
     @State private var scrollSpeed: Double = 1.0
 
     /// Creates a new film-style credits view
     /// - Parameter credits: The credits data to display
-    public init(credits: CreditData) {
+    /// - Parameter textColor: The text color for the credits view
+    public init(credits: CreditData, textColor: Color = .white) {
         self.credits = credits
+        self.textColor = textColor
     }
 
     public var body: some View {
@@ -34,7 +37,7 @@ public struct FilmCreditsView: View {
         HStack {
             Button(action: { isAnimating.toggle() }) {
                 Text(isAnimating ? "Pause" : "Play")
-                    .foregroundColor(.white)
+                    .foregroundColor(textColor)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
                     .cornerRadius(8)
@@ -45,11 +48,11 @@ public struct FilmCreditsView: View {
 
             HStack(spacing: 8) {
                 Text("Speed:")
-                    .foregroundColor(.white)
+                    .foregroundColor(textColor)
                 Slider(value: $scrollSpeed, in: 0.5 ... 3.0, step: 0.5)
                     .frame(width: 100)
                 Text("\(scrollSpeed, specifier: "%.1f")x")
-                    .foregroundColor(.white)
+                    .foregroundColor(textColor)
             }
         }
         .padding(.horizontal)
@@ -98,9 +101,11 @@ public struct FilmCreditsView: View {
                 Text(credits.appName)
                     .font(.system(size: 42, weight: .bold))
                     .tracking(2)
+                    .foregroundColor(textColor)
 
                 Text("Version \(credits.version) • \(credits.releaseDate)")
                     .font(.system(size: 18))
+                    .foregroundColor(textColor)
             }
             .padding(.bottom, 60)
 
@@ -113,13 +118,15 @@ public struct FilmCreditsView: View {
             VStack(spacing: 8) {
                 Text(credits.copyright)
                     .font(.system(size: 16))
+                    .foregroundColor(textColor)
                 Text(credits.website)
                     .font(.system(size: 14))
                     .opacity(0.7)
+                    .foregroundColor(textColor)
             }
             .padding(.top, 60)
         }
-        .foregroundColor(.white)
+        .foregroundColor(textColor)
         .multilineTextAlignment(.center)
         .padding(.horizontal)
     }

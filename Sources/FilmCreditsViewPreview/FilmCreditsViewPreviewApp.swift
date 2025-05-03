@@ -5,7 +5,7 @@ import SwiftUI
 struct FilmCreditsViewPreviewApp: App {
     var body: some Scene {
         WindowGroup {
-            FilmCreditsView(credits: CreditData.sample())
+            FilmCreditsView(credits: CreditData.sample(), textColor: .yellow)
         }
     }
 }

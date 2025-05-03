@@ -43,7 +43,7 @@ public struct CreditData {
                 CreditSection(
                     title: "Created By",
                     items: [
-                        CreditItem(name: "Your Name", role: "Creator & Developer"),
+                        CreditItem(name: "Aisha Patel", role: "Creator & Developer"),
                     ],
                     fontSize: 32,
                     spacing: 20
@@ -51,9 +51,9 @@ public struct CreditData {
                 CreditSection(
                     title: "Key Contributors",
                     items: [
-                        CreditItem(name: "Jane Smith", role: "UX Design"),
-                        CreditItem(name: "John Doe", role: "Icon Design"),
-                        CreditItem(name: "Alex Johnson", role: "Beta Testing Lead"),
+                        CreditItem(name: "Mateo Rodriguez", role: "UX Design"),
+                        CreditItem(name: "Zainab Okafor", role: "Icon Design"),
+                        CreditItem(name: "Hiroshi Tanaka", role: "Beta Testing Lead"),
                     ],
                     fontSize: 24,
                     spacing: 16
@@ -61,8 +61,9 @@ public struct CreditData {
                 CreditSection(
                     title: "Special Thanks",
                     items: [
-                        CreditItem(name: "Sarah Williams", role: "Feature Ideas"),
-                        CreditItem(name: "Michael Chen", role: "Usability Feedback"),
+                        CreditItem(name: "Mei Lin", role: "Feature Ideas"),
+                        CreditItem(name: "Kwame Nkrumah", role: "Usability Feedback"),
+                        CreditItem(name: "Sofia Esposito", role: "Performance Testing"),
                     ],
                     fontSize: 18,
                     spacing: 12
